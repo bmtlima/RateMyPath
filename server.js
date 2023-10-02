@@ -1,37 +1,65 @@
 const express = require("express");
-// const bodyParser = require("body-parser"); /* deprecated */
 const cors = require("cors");
-
+const { Pool } = require('pg');
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8081"
+const corsOptions = {
+  origin: "http://localhost:4200"
 };
 
 app.use(cors(corsOptions));
+app.use(express.json());
 
-// parse requests of content-type - application/json
-app.use(express.json());  /* bodyParser.json() is deprecated */
+const dbConfig = {
+  user: 'ratemypathuser',
+  host: 'ratemypathdbinstance.cbdnqek3in09.us-east-1.rds.amazonaws.com',
+  database: 'ratemypathdb',
+  password: 'htapymetar',
+  port: 5432, // PostgreSQL default port
+  ssl: {
+    rejectUnauthorized: false,
+  }
+};
 
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));   /* bodyParser.urlencoded() is deprecated */
+const pool = new Pool(dbConfig);
 
-const db = require("./app/models");
-db.sequelize.sync();
-// // drop the table if it already exists
-// db.sequelize.sync({ force: true }).then(() => {
-//   console.log("Drop and re-sync db.");
-// });
-
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+// Create a 'users' table
+pool.query(`
+  CREATE TABLE IF NOT EXISTS users (
+    user_id serial PRIMARY KEY,
+    username VARCHAR (50) UNIQUE NOT NULL,
+    email VARCHAR (255) UNIQUE NOT NULL
+  );
+`, (err, result) => {
+  if (err) {
+    console.error('Error creating the "users" table:', err);
+  } else {
+    console.log('The "users" table has been created.');
+  }
 });
 
-require("./app/routes/turorial.routes")(app);
+// Test the connection
+pool.query('SELECT NOW()', (err, result) => {
+  if (err) {
+    console.error('Error connecting to PostgreSQL:', err);
+  } else {
+    console.log('Connected to PostgreSQL:', result.rows[0].now);
+  }
+});
 
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
+app.get('/api/data', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM users'); // Use the correct table name here
+    client.release(); // Release the client back to the pool
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Database error' });
+  }
+});
+
+const PORT = process.env.PORT || 5432;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
