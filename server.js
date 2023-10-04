@@ -38,6 +38,20 @@ pool.query(`
   }
 });
 
+// Create a 'tutorials' table
+pool.query(`
+  CREATE TABLE IF NOT EXISTS tutorials (
+    title VARCHAR (100) PRIMARY KEY,
+    description VARCHAR (50) UNIQUE NOT NULL
+  );
+`, (err, result) => {
+  if (err) {
+    console.error('Error creating the "users" table:', err);
+  } else {
+    console.log('The "tutorials" table has been created.');
+  }
+});
+
 // Test the connection
 pool.query('SELECT NOW()', (err, result) => {
   if (err) {
@@ -59,7 +73,23 @@ app.get('/api/data', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5432;
+app.post('/', (req, res) => {
+  const { query, values } = req.body;
+
+  pool.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      res.status(500).json({ error: 'Data insertion error' });
+    } else {
+      console.log('Data inserted successfully.');
+      res.json(result.rows);
+    }
+  });
+});
+
+const PORT = process.env.PORT || 4200;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+

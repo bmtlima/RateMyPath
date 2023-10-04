@@ -3,13 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tutorial } from '../models/tutorial.model';
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = 'http://localhost:4200/api/tutorials';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class TutorialService {
   constructor(private http: HttpClient) {}
+
+  addData(data: any): Observable<any> {
+    // Use parameterized query to insert data into the database
+    const query = 'INSERT INTO tutorials (field1, field2) VALUES ($1, $2)';
+    const values = [data.field1, data.field2];
+
+    return this.http.post(baseUrl, { query, values });
+  }
 
   getAll(): Observable<Tutorial[]> {
     return this.http.get<Tutorial[]>(baseUrl);

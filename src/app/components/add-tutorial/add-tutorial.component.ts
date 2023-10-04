@@ -23,9 +23,9 @@ export class AddTutorialComponent {
       description: this.tutorial.description
     };
 
-    this.tutorialService.create(data).subscribe({
+    this.tutorialService.addData(data).subscribe({
       next: (res) => {
-        console.log(res);
+        console.log('Response from server:', res);
         this.submitted = true;
       },
       error: (e) => console.error(e)
