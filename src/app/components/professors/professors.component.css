@@ -1,0 +1,19 @@
+.professor-container {
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating i.fa {
+    color: #f4c542;
+    margin-right: 5px;
+}
+
+.courses {
+    margin-top: 15px;
+}

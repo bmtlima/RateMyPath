@@ -1,1 +1,20 @@
-<div>professors works!</div>
+<div class="filter-bar">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search for a professor..." />
+    <button (click)="filterProfessors()">Search</button>
+</div>
+
+<div class="professor-container" *ngFor="let professor of professors">
+    <h3>{{ professor.name }}</h3>
+    
+    <p><strong>Rating:</strong> 
+        {{ professor.rating }}/5
+        <span *ngFor="let r of [1,2,3,4,5]">
+            <i class="fa" [ngClass]="r <= professor.rating ? 'fa-star' : 'fa-star-o'"></i>
+        </span>
+    </p>
+    
+    <p><strong>Courses Taught:</strong>
+        <ul>
+            <li *ngFor="let course of professor.courses">{{ course }}</li>
+        </ul>
+</div>
