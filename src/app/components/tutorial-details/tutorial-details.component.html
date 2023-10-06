@@ -1,0 +1,153 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTutorial.id">
+    <h4>Tutorial</h4>
+    <div>
+      <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+    </div>
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentTutorial.description }}
+    </div>
+    <div>
+      <label><strong>Status:</strong></label>
+      {{ currentTutorial.published ? "Published" : "Pending" }}
+    </div>
+    <div>
+      <label><strong>Course Rating:</strong></label> {{ currentTutorial.course_rating }}
+    </div>
+    <div>
+      <label><strong>Professor Rating:</strong></label> {{ currentTutorial.prof_rating }}
+    </div>
+    <div>
+      <label><strong>Difficulty:</strong></label> {{ currentTutorial.difficulty }}
+    </div>
+    <div>
+      <label><strong>Workload:</strong></label> {{ currentTutorial.workload }}
+    </div>
+    <a class="badge badge-warning"
+      routerLink="/tutorials/{{ currentTutorial.id }}">
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentTutorial">
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentTutorial.id" class="edit-form">
+    <h4>Tutorial</h4>
+    <form>
+      <!-- Title -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentTutorial.title"
+          name="title"
+        />
+      </div>
+      
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentTutorial.description"
+          name="description"
+        />
+      </div>
+      
+      <!-- Course Rating -->
+      <div class="form-group">
+        <label for="course_rating">Course Rating</label>
+        <input
+          type="number"
+          class="form-control"
+          id="course_rating"
+          [(ngModel)]="currentTutorial.course_rating"
+          name="course_rating"
+        />
+      </div>
+      
+      <!-- Professor Rating -->
+      <div class="form-group">
+        <label for="prof_rating">Professor Rating</label>
+        <input
+          type="number"
+          class="form-control"
+          id="prof_rating"
+          [(ngModel)]="currentTutorial.prof_rating"
+          name="prof_rating"
+        />
+      </div>
+      
+      <!-- Difficulty -->
+      <div class="form-group">
+        <label for="difficulty">Difficulty</label>
+        <input
+          type="number"
+          class="form-control"
+          id="difficulty"
+          [(ngModel)]="currentTutorial.difficulty"
+          name="difficulty"
+        />
+      </div>
+      
+      <!-- Workload -->
+      <div class="form-group">
+        <label for="workload">Workload</label>
+        <input
+          type="number"
+          class="form-control"
+          id="workload"
+          [(ngModel)]="currentTutorial.workload"
+          name="workload"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+
+    <!-- Remaining buttons... (no changes here) -->
+    <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentTutorial.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentTutorial.published"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button>
+    <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+      Delete
+    </button>
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTutorial()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentTutorial.id">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,85 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <!-- Title Field -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="tutorial.title"
+          name="title"
+        />
+      </div>
+
+      <!-- Description Field -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="tutorial.description"
+          name="description"
+        />
+      </div>
+
+      <!-- Course Rating Field -->
+      <div class="form-group">
+        <label for="course_rating">Course Rating</label>
+        <input
+          type="number"
+          class="form-control"
+          id="course_rating"
+          [(ngModel)]="tutorial.course_rating"
+          name="course_rating"
+        />
+      </div>
+
+      <!-- Professor Rating Field -->
+      <div class="form-group">
+        <label for="prof_rating">Professor Rating</label>
+        <input
+          type="number"
+          class="form-control"
+          id="prof_rating"
+          [(ngModel)]="tutorial.prof_rating"
+          name="prof_rating"
+        />
+      </div>
+
+      <!-- Difficulty Field -->
+      <div class="form-group">
+        <label for="difficulty">Difficulty</label>
+        <input
+          type="number"
+          class="form-control"
+          id="difficulty"
+          [(ngModel)]="tutorial.difficulty"
+          name="difficulty"
+        />
+      </div>
+
+      <!-- Workload Field -->
+      <div class="form-group">
+        <label for="workload">Workload</label>
+        <input
+          type="number"
+          class="form-control"
+          id="workload"
+          [(ngModel)]="tutorial.workload"
+          name="workload"
+        />
+      </div>
+
+      <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Tutorial was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+  </div>
+</div>
