@@ -1,6 +1,6 @@
 <div *ngIf="viewMode; else editable">
   <div *ngIf="currentTutorial.id">
-    <h4>Tutorial</h4>
+    <h4>Course Information</h4>
     <div>
       <label><strong>Title:</strong></label> {{ currentTutorial.title }}
     </div>
@@ -8,10 +8,10 @@
       <label><strong>Description:</strong></label>
       {{ currentTutorial.description }}
     </div>
-    <div>
+    <!--<div>
       <label><strong>Status:</strong></label>
       {{ currentTutorial.published ? "Published" : "Pending" }}
-    </div>
+    </div> -->
     <div>
       <label><strong>Course Rating:</strong></label> {{ currentTutorial.course_rating }}
     </div>
@@ -38,7 +38,7 @@
 
 <ng-template #editable>
   <div *ngIf="currentTutorial.id" class="edit-form">
-    <h4>Tutorial</h4>
+    <h4>Course Information</h4>
     <form>
       <!-- Title -->
       <div class="form-group">
@@ -112,10 +112,10 @@
         />
       </div>
       
-      <div class="form-group">
+      <!--<div class="form-group">
         <label><strong>Status:</strong></label>
         {{ currentTutorial.published ? "Published" : "Pending" }}
-      </div>
+      </div> -->
     </form>
 
     <!-- Remaining buttons... (no changes here) -->
@@ -126,13 +126,13 @@
     >
       UnPublish
     </button>
-    <button
+    <!--<button
       *ngIf="!currentTutorial.published"
       class="badge badge-primary mr-2"
       (click)="updatePublished(true)"
     >
       Publish
-    </button>
+    </button>-->
     <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
       Delete
     </button>
@@ -148,6 +148,6 @@
 
   <div *ngIf="!currentTutorial.id">
     <br />
-    <p>Cannot access this Tutorial...</p>
+    <p>Cannot access this Course...</p>
   </div>
 </ng-template>
