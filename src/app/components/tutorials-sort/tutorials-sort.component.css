@@ -1,0 +1,12 @@
+.best-rated {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    margin: 1rem 0;
+  }
+  
+  .highlighted-course {
+    font-weight: bold;
+  }
+  
