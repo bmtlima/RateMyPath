@@ -11,11 +11,15 @@ export class AddTutorialComponent {
   tutorial: Tutorial = {
     title: '',
     description: '',
+<<<<<<< HEAD
     published: false,
     course_rating: 0,         // Added new fields here
     prof_rating: 0,
     difficulty: 0,
     workload: 0
+=======
+    published: false
+>>>>>>> 96da6b29 (base working)
   };
   submitted = false;
 
@@ -24,12 +28,16 @@ export class AddTutorialComponent {
   saveTutorial(): void {
     const data = {
       title: this.tutorial.title,
+<<<<<<< HEAD
       description: this.tutorial.description,
       published: this.tutorial.published,
       course_rating: this.tutorial.course_rating,  // Added new fields here
       prof_rating: this.tutorial.prof_rating,
       difficulty: this.tutorial.difficulty,
       workload: this.tutorial.workload
+=======
+      description: this.tutorial.description
+>>>>>>> 96da6b29 (base working)
     };
 
     this.tutorialService.create(data).subscribe({
@@ -46,11 +54,15 @@ export class AddTutorialComponent {
     this.tutorial = {
       title: '',
       description: '',
+<<<<<<< HEAD
       published: false,
       course_rating: 0,        // Resetting new fields to default values
       prof_rating: 0,
       difficulty: 0,
       workload: 0
+=======
+      published: false
+>>>>>>> 96da6b29 (base working)
     };
   }
 }

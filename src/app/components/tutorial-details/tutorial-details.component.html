@@ -1,6 +1,10 @@
 <div *ngIf="viewMode; else editable">
   <div *ngIf="currentTutorial.id">
+<<<<<<< HEAD
     <h4>Course Information</h4>
+=======
+    <h4>Tutorial</h4>
+>>>>>>> 96da6b29 (base working)
     <div>
       <label><strong>Title:</strong></label> {{ currentTutorial.title }}
     </div>
@@ -8,6 +12,7 @@
       <label><strong>Description:</strong></label>
       {{ currentTutorial.description }}
     </div>
+<<<<<<< HEAD
     <!--<div>
       <label><strong>Status:</strong></label>
       {{ currentTutorial.published ? "Published" : "Pending" }}
@@ -24,6 +29,13 @@
     <div>
       <label><strong>Workload:</strong></label> {{ currentTutorial.workload }}
     </div>
+=======
+    <div>
+      <label><strong>Status:</strong></label>
+      {{ currentTutorial.published ? "Published" : "Pending" }}
+    </div>
+
+>>>>>>> 96da6b29 (base working)
     <a class="badge badge-warning"
       routerLink="/tutorials/{{ currentTutorial.id }}">
       Edit
@@ -38,9 +50,14 @@
 
 <ng-template #editable>
   <div *ngIf="currentTutorial.id" class="edit-form">
+<<<<<<< HEAD
     <h4>Course Information</h4>
     <form>
       <!-- Title -->
+=======
+    <h4>Tutorial</h4>
+    <form>
+>>>>>>> 96da6b29 (base working)
       <div class="form-group">
         <label for="title">Title</label>
         <input
@@ -51,8 +68,11 @@
           name="title"
         />
       </div>
+<<<<<<< HEAD
       
       <!-- Description -->
+=======
+>>>>>>> 96da6b29 (base working)
       <div class="form-group">
         <label for="description">Description</label>
         <input
@@ -63,6 +83,7 @@
           name="description"
         />
       </div>
+<<<<<<< HEAD
       
       <!-- Course Rating -->
       <div class="form-group">
@@ -119,6 +140,15 @@
     </form>
 
     <!-- Remaining buttons... (no changes here) -->
+=======
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+
+>>>>>>> 96da6b29 (base working)
     <button
       class="badge badge-primary mr-2"
       *ngIf="currentTutorial.published"
@@ -126,16 +156,29 @@
     >
       UnPublish
     </button>
+<<<<<<< HEAD
     <!--<button
+=======
+    <button
+>>>>>>> 96da6b29 (base working)
       *ngIf="!currentTutorial.published"
       class="badge badge-primary mr-2"
       (click)="updatePublished(true)"
     >
       Publish
+<<<<<<< HEAD
     </button>-->
     <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
       Delete
     </button>
+=======
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+      Delete
+    </button>
+
+>>>>>>> 96da6b29 (base working)
     <button
       type="submit"
       class="badge badge-success mb-2"
@@ -148,6 +191,10 @@
 
   <div *ngIf="!currentTutorial.id">
     <br />
+<<<<<<< HEAD
     <p>Cannot access this Course...</p>
+=======
+    <p>Cannot access this Tutorial...</p>
+>>>>>>> 96da6b29 (base working)
   </div>
 </ng-template>

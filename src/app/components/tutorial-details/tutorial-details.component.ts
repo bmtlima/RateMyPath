@@ -14,11 +14,15 @@ export class TutorialDetailsComponent {
   @Input() currentTutorial: Tutorial = {
     title: '',
     description: '',
+<<<<<<< HEAD
     published: false,
     course_rating: 0,        // Added new fields here
     prof_rating: 0,
     difficulty: 0,
     workload: 0
+=======
+    published: false
+>>>>>>> 96da6b29 (base working)
   };
 
   message = '';
@@ -50,11 +54,15 @@ export class TutorialDetailsComponent {
     const data = {
       title: this.currentTutorial.title,
       description: this.currentTutorial.description,
+<<<<<<< HEAD
       published: status,
       course_rating: this.currentTutorial.course_rating,   // Added new fields here
       prof_rating: this.currentTutorial.prof_rating,
       difficulty: this.currentTutorial.difficulty,
       workload: this.currentTutorial.workload
+=======
+      published: status
+>>>>>>> 96da6b29 (base working)
     };
 
     this.message = '';

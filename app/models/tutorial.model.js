@@ -8,6 +8,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     published: {
       type: Sequelize.BOOLEAN
+<<<<<<< HEAD
     },
     course_rating: {
       type: Sequelize.FLOAT
@@ -20,6 +21,8 @@ module.exports = (sequelize, Sequelize) => {
     },
     workload: {
       type: Sequelize.FLOAT
+=======
+>>>>>>> 96da6b29 (base working)
     }
   });
 
