@@ -24,6 +24,12 @@
     <div>
       <label><strong>Workload:</strong></label> {{ currentTutorial.workload }}
     </div>
+    <div>
+      <label><strong>Professor Name:</strong></label> {{ currentTutorial.professor_name }}
+    </div>
+    <div>
+      <label><strong>Term:</strong></label> {{ currentTutorial.term }}
+    </div>
     <a class="badge badge-warning"
       routerLink="/tutorials/{{ currentTutorial.id }}">
       Edit
@@ -111,6 +117,31 @@
           name="workload"
         />
       </div>
+
+      <!-- Professor Name -->
+      <div class="form-group">
+        <label for="professor_name">Professor Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="professor_name"
+          [(ngModel)]="currentTutorial.professor_name"
+          name="professor_name"
+        />
+      </div>
+
+      <!-- Term -->
+      <div class="form-group">
+        <label for="term">Term</label>
+        <input
+          type="text"
+          class="form-control"
+          id="term"
+          [(ngModel)]="currentTutorial.term"
+          name="term"
+        />
+      </div>
+
       
       <!--<div class="form-group">
         <label><strong>Status:</strong></label>

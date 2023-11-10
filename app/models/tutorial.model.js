@@ -20,6 +20,12 @@ module.exports = (sequelize, Sequelize) => {
     },
     workload: {
       type: Sequelize.FLOAT
+    },
+    professor_name: {
+      type: Sequelize.STRING
+    },
+    term: {
+      type: Sequelize.STRING
     }
   });
 

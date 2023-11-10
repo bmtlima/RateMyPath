@@ -9,7 +9,10 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 export class TutorialsListComponent {
   tutorials?: Tutorial[];
-  currentTutorial: Tutorial = {};
+  currentTutorial: Tutorial = {
+    professor_name: '',
+    term: ''
+  };
   currentIndex = -1;
   title = '';
 
@@ -31,7 +34,11 @@ export class TutorialsListComponent {
 
   refreshList(): void {
     this.retrieveTutorials();
-    this.currentTutorial = {};
+    this.currentTutorial = {
+      professor_name: '',
+      term: '',
+      // ...initialize other non-optional properties with default values
+    };
     this.currentIndex = -1;
   }
 
@@ -51,7 +58,10 @@ export class TutorialsListComponent {
   }
 
   searchTitle(): void {
-    this.currentTutorial = {};
+    this.currentTutorial = {
+      professor_name: '',
+      term: '',
+    };
     this.currentIndex = -1;
 
     this.tutorialService.findByTitle(this.title).subscribe({

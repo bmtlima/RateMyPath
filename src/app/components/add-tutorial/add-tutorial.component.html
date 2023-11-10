@@ -50,6 +50,30 @@
         />
       </div>
 
+      <!-- Professor Name Field -->
+      <div class="form-group">
+        <label for="professor_name">Professor Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="professor_name"
+          [(ngModel)]="tutorial.professor_name"
+          name="professor_name"
+        />
+      </div>
+    
+      <!-- Term -->
+      <div class="form-group">
+        <label for="term">Term:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="term"
+          [(ngModel)]="tutorial.term"
+          name="term"
+        />
+      </div>
+
       <!-- Difficulty Field -->
       <div class="form-group">
         <label for="difficulty">Difficulty</label>
@@ -78,7 +102,7 @@
     </div>
 
     <div *ngIf="submitted">
-      <h4>Tutorial was submitted successfully!</h4>
+      <h4>course was submitted successfully!</h4>
       <button class="btn btn-success" (click)="newTutorial()">Add</button>
     </div>
   </div>

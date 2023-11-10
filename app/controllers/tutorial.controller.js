@@ -20,7 +20,8 @@ exports.create = (req, res) => {
     course_rating: req.body.course_rating,
     prof_rating: req.body.prof_rating,
     difficulty: req.body.difficulty,
-    workload: req.body.workload
+    professor_name: req.body.professor_name,
+    term: req.body.term,
   };
 
   // Save Tutorial in the database

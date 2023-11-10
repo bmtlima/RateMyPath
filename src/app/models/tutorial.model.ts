@@ -7,4 +7,6 @@ export class Tutorial {
   prof_rating?: number;
   difficulty?: number;
   workload?: number;
+  professor_name: string = '';
+  term: string = '';
 }

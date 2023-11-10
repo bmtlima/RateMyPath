@@ -9,7 +9,11 @@ import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.com
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { TutorialsSortComponent } from './components/tutorials-sort/tutorials-sort.component';
+
 import { ProfessorsComponent } from './components/professors/professors.component';
+import { CourseListingComponent } from './components/course-listing/course-listing.component'
+
+import { CourseService } from './services/course.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,9 @@ import { ProfessorsComponent } from './components/professors/professors.componen
     AddTutorialComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
-    ProfessorsComponent
+    ProfessorsComponent,
+    CourseListingComponent
+    // Add any other components here
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,8 @@ import { ProfessorsComponent } from './components/professors/professors.componen
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

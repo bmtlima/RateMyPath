@@ -15,10 +15,12 @@ export class TutorialDetailsComponent {
     title: '',
     description: '',
     published: false,
-    course_rating: 0,        // Added new fields here
+    course_rating: 0,
     prof_rating: 0,
     difficulty: 0,
-    workload: 0
+    workload: 0,
+    professor_name: '',
+    term: ''
   };
 
   message = '';
@@ -53,8 +55,10 @@ export class TutorialDetailsComponent {
       published: status,
       course_rating: this.currentTutorial.course_rating,   // Added new fields here
       prof_rating: this.currentTutorial.prof_rating,
+      professor_name: this.currentTutorial.professor_name,
       difficulty: this.currentTutorial.difficulty,
-      workload: this.currentTutorial.workload
+      workload: this.currentTutorial.workload,
+      term: this.currentTutorial.term,
     };
 
     this.message = '';

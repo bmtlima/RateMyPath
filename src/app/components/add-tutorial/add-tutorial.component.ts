@@ -14,8 +14,10 @@ export class AddTutorialComponent {
     published: false,
     course_rating: 0,         // Added new fields here
     prof_rating: 0,
+    term: '',
     difficulty: 0,
-    workload: 0
+    workload: 0,
+    professor_name: '',
   };
   submitted = false;
 
@@ -28,6 +30,8 @@ export class AddTutorialComponent {
       published: this.tutorial.published,
       course_rating: this.tutorial.course_rating,  // Added new fields here
       prof_rating: this.tutorial.prof_rating,
+      professor_name: this.tutorial.professor_name,
+      term: this.tutorial.term,
       difficulty: this.tutorial.difficulty,
       workload: this.tutorial.workload
     };
@@ -49,6 +53,8 @@ export class AddTutorialComponent {
       published: false,
       course_rating: 0,        // Resetting new fields to default values
       prof_rating: 0,
+      professor_name: '',
+      term: '',
       difficulty: 0,
       workload: 0
     };
