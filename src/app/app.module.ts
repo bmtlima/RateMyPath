@@ -9,6 +9,7 @@ import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.com
 import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { TutorialsSortComponent } from './components/tutorials-sort/tutorials-sort.component';
+import { ProfessorsComponent } from './components/professors/professors.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TutorialsSortComponent } from './components/tutorials-sort/tutorials-so
     AddTutorialComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
-    TutorialsSortComponent
+    ProfessorsComponent
   ],
   imports: [
     BrowserModule,
